@@ -141,7 +141,7 @@ async function viewOnceCommand(sock, chatId, message) {
     } catch (error) {
         console.error('❌ Error in viewonce command:', error);
         await sock.sendMessage(chatId, { 
-            text: '❌ Error processing view once message! Error: ' + error.message,
+            text: '❌ processing view once message! Error: ' + error.message,
             ...channelInfo
         });
     }
