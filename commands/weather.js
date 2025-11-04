@@ -9,6 +9,6 @@ module.exports = async function (sock, chatId, city) {
         await sock.sendMessage(chatId, { text: weatherText });
     } catch (error) {
         console.error('Error fetching weather:', error);
-        await sock.sendMessage(chatId, { text: 'Sorry, I could not fetch the weather right now.' });
+        await sock.sendMessage(chatId, { text: 'عذرا، لم أتمكن من الحصول على الطقس الآن.' });
     }
 };
