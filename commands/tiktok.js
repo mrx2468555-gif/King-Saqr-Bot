@@ -23,7 +23,7 @@ async function tiktokCommand(sock, chatId, message) {
         
         if (!text) {
             return await sock.sendMessage(chatId, { 
-                text: "Please provide a TikTok link for the video."
+                text: "يرجي ارسال رابط فيديو تيك توك ."
             });
         }
 
@@ -32,7 +32,7 @@ async function tiktokCommand(sock, chatId, message) {
         
         if (!url) {
             return await sock.sendMessage(chatId, { 
-                text: "Please provide a TikTok link for the video."
+                text: "يرجي ارسال رابط فيديو تيك توك."
             });
         }
 
@@ -49,7 +49,7 @@ async function tiktokCommand(sock, chatId, message) {
         
         if (!isValidUrl) {
             return await sock.sendMessage(chatId, { 
-                text: "That is not a valid TikTok link. Please provide a valid TikTok video link."
+                text: "هذا ليس رابط تيك توك صحيح. يُرجى ارسال رابط فيديو تيك توك .."
             });
         }
 
@@ -70,7 +70,7 @@ async function tiktokCommand(sock, chatId, message) {
                         await sock.sendMessage(chatId, {
                             video: { url: videoUrl },
                             mimetype: "video/mp4",
-                            caption: "*DOWNLOADED BY King Saqr BOT*"
+                            caption: "*DOWNLOADED BY Abdulrahman*"
                         }, { quoted: message });
                         return;
                     }
@@ -79,7 +79,7 @@ async function tiktokCommand(sock, chatId, message) {
 
             if (!downloadData || !downloadData.data || downloadData.data.length === 0) {
                 return await sock.sendMessage(chatId, { 
-                    text: "No media found at the provided link. Please try again with a different link."
+                    text: "لم يتم العثور على أي وسائط في الرابط المُقدّم. يُرجى المحاولة مرة أخرى باستخدام رابط آخر.."
                 });
             }
 
@@ -96,25 +96,25 @@ async function tiktokCommand(sock, chatId, message) {
                     await sock.sendMessage(chatId, {
                         video: { url: mediaUrl },
                         mimetype: "video/mp4",
-                        caption: "*DOWNLOADED BY King Saqr BOT*"
+                        caption: "*DOWNLOADED BY Abdulrahman*"
                     }, { quoted: message });
                 } else {
                     await sock.sendMessage(chatId, {
                         image: { url: mediaUrl },
-                        caption: "*DOWNLOADED BY King Saqr BOT*"
+                        caption: "*DOWNLOADED BY Abdulrahman*"
                     }, { quoted: message });
                 }
             }
         } catch (error) {
             console.error('Error in TikTok download:', error);
             await sock.sendMessage(chatId, { 
-                text: "Failed to download the TikTok video. Please try again with a different link."
+                text: "تعذّر تنزيل فيديو تيك توك. يُرجى المحاولة مجددًا باستخدام رابط اخر.."
             });
         }
     } catch (error) {
         console.error('Error in TikTok command:', error);
         await sock.sendMessage(chatId, { 
-            text: "An error occurred while processing the request. Please try again later."
+            text: "حدث خطأ أثناء معالجة الطلب. يُرجى المحاولة لاحقًا.."
         });
     }
 }
