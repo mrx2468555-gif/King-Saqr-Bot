@@ -15,7 +15,7 @@ async function banCommand(sock, chatId, message) {
     
     if (!userToBan) {
         await sock.sendMessage(chatId, { 
-            text: 'Please mention the user or reply to their message to ban!', 
+            text: 'يرجى ذكر المستخدم أو الرد على رسالته للحظر!', 
             ...channelInfo 
         });
         return;
@@ -42,7 +42,7 @@ async function banCommand(sock, chatId, message) {
         }
     } catch (error) {
         console.error('Error in ban command:', error);
-        await sock.sendMessage(chatId, { text: 'Failed to ban user!', ...channelInfo });
+        await sock.sendMessage(chatId, { text: 'فشل حظر المستخدم!', ...channelInfo });
     }
 }
 
