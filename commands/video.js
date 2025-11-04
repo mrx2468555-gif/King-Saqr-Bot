@@ -24,7 +24,7 @@ async function videoCommand(sock, chatId, message) {
             // Search YouTube for the video
             const { videos } = await yts(searchQuery);
             if (!videos || videos.length === 0) {
-                await sock.sendMessage(chatId, { text: 'No videos found!' }, { quoted: message });
+                await sock.sendMessage(chatId, { text: 'لم يتم العثور على مقاطع فيديو!' }, { quoted: message });
                 return;
             }
             videoUrl = videos[0].url;
@@ -34,7 +34,7 @@ async function videoCommand(sock, chatId, message) {
         // Validate YouTube URL
         let urls = videoUrl.match(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch\?v=|v\/|embed\/|shorts\/|playlist\?list=)?)([a-zA-Z0-9_-]{11})/gi);
         if (!urls) {
-            await sock.sendMessage(chatId, { text: 'This is not a valid YouTube link!' }, { quoted: message });
+            await sock.sendMessage(chatId, { text: 'هذه ليس رابط يوتيوب!' }, { quoted: message });
             return;
         }
 
@@ -48,14 +48,14 @@ async function videoCommand(sock, chatId, message) {
         });
 
         if (!response.ok) {
-            await sock.sendMessage(chatId, { text: 'Failed to fetch video from the API.' }, { quoted: message });
+            await sock.sendMessage(chatId, { text: 'فشل معرفة الفيديو.' }, { quoted: message });
             return;
         }
 
         const data = await response.json();
 
         if (!data || !data.result || !data.result.download || !data.result.download.url) {
-            await sock.sendMessage(chatId, { text: 'فشل الحصول على رابط تنزيل صالح من واجهة برمجة التطبيقات.' }, { quoted: message });
+            await sock.sendMessage(chatId, { text: 'فشل الحصول على رابط الفيديو .' }, { quoted: message });
             return;
         }
 
@@ -78,7 +78,7 @@ async function videoCommand(sock, chatId, message) {
         
         const buffer = await videoRes.buffer();
         if (!buffer || buffer.length < 1024) {
-            await sock.sendMessage(chatId, { text: 'Downloaded file is empty or too small.' }, { quoted: message });
+            await sock.sendMessage(chatId, { text: 'الملف الذي تم تنزيله فارغ أو صغير جدًا.' }, { quoted: message });
             return;
         }
         
