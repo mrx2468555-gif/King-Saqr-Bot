@@ -3,7 +3,7 @@ const { handleWelcome } = require('../lib/welcome');
 async function welcomeCommand(sock, chatId, message, match) {
     // Check if it's a group
     if (!chatId.endsWith('@g.us')) {
-        await sock.sendMessage(chatId, { text: 'This command can only be used in groups.' });
+        await sock.sendMessage(chatId, { text: 'لا يمكن استخدام هذا الأمر إلا في المجموعات.' });
         return;
     }
 
