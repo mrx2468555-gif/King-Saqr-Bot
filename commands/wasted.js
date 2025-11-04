@@ -15,7 +15,7 @@ async function wastedCommand(sock, chatId, message) {
     
     if (!userToWaste) {
         await sock.sendMessage(chatId, { 
-            text: 'Please mention someone or reply to their message to waste them!', 
+            text: 'يرجى ذكر شخص ما أو الرد على رسالته!', 
             ...channelInfo 
         });
         return;
@@ -47,7 +47,7 @@ async function wastedCommand(sock, chatId, message) {
     } catch (error) {
         console.error('Error in wasted command:', error);
         await sock.sendMessage(chatId, { 
-            text: 'Failed to create wasted image! Try again later.',
+            text: 'فشل إنشاء الصورة! حاول مرة أخرى لاحقًا.',
             ...channelInfo 
         });
     }
