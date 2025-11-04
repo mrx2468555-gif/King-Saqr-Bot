@@ -177,10 +177,10 @@ async function handleMessageRevocation(sock, revocationMessage) {
         });
 
         let text = `*🔰 ANTIDELETE REPORT 🔰*\n\n` +
-            `*🗑️ Deleted By:* @${deletedBy.split('@')[0]}\n` +
-            `*👤 Sender:* @${senderName}\n` +
-            `*📱 Number:* ${sender}\n` +
-            `*🕒 Time:* ${time}\n`;
+            `*🗑️ تم الحذف بواسطة:* @${deletedBy.split('@')[0]}\n` +
+            `*👤 المرسل:* @${senderName}\n` +
+            `*📱 الرقم:* ${sender}\n` +
+            `*🕒 الوقت:* ${time}\n`;
 
         if (groupName) text += `*👥 Group:* ${groupName}\n`;
 
