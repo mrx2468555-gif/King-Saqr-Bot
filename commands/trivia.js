@@ -4,7 +4,7 @@ let triviaGames = {};
 
 async function startTrivia(sock, chatId) {
     if (triviaGames[chatId]) {
-        sock.sendMessage(chatId, { text: 'A trivia game is already in progress!' });
+        sock.sendMessage(chatId, { text: 'لعبة تافهة شغاله بالفعل!' });
         return;
     }
 
@@ -22,13 +22,13 @@ async function startTrivia(sock, chatId) {
             text: `Trivia Time!\n\nQuestion: ${triviaGames[chatId].question}\nOptions:\n${triviaGames[chatId].options.join('\n')}`
         });
     } catch (error) {
-        sock.sendMessage(chatId, { text: 'Error fetching trivia question. Try again later.' });
+        sock.sendMessage(chatId, { text: 'حدث خطأ أثناء تحميل سؤال المعلومات العامة. حاول مرة أخرى لاحقًا..' });
     }
 }
 
 function answerTrivia(sock, chatId, answer) {
     if (!triviaGames[chatId]) {
-        sock.sendMessage(chatId, { text: 'No trivia game is in progress.' });
+        sock.sendMessage(chatId, { text: 'لا توجد لعبة تافهة قيد التقدم.' });
         return;
     }
 
