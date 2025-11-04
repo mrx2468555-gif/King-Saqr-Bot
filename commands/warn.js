@@ -27,7 +27,7 @@ async function warnCommand(sock, chatId, senderId, mentionedJids, message) {
         // First check if it's a group
         if (!chatId.endsWith('@g.us')) {
             await sock.sendMessage(chatId, { 
-                text: 'This command can only be used in groups!'
+                text: 'لا يمكن استخدام هذا الأمر إلا في المجموعات!'
             });
             return;
         }
@@ -115,7 +115,7 @@ async function warnCommand(sock, chatId, senderId, mentionedJids, message) {
                 fs.writeFileSync(warningsPath, JSON.stringify(warnings, null, 2));
                 
                 const kickMessage = `*『 AUTO-KICK 』*\n\n` +
-                    `@${userToWarn.split('@')[0]} has been removed from the group after receiving 3 warnings! ⚠️`;
+                    `@${userToWarn.split('@')[0]} تمت إزالته من المجموعة بعد تلقي 3 تحذيرات! ⚠️`;
 
                 await sock.sendMessage(chatId, { 
                     text: kickMessage,
@@ -125,7 +125,7 @@ async function warnCommand(sock, chatId, senderId, mentionedJids, message) {
         } catch (error) {
             console.error('Error in warn command:', error);
             await sock.sendMessage(chatId, { 
-                text: '❌ Failed to warn user!'
+                text: '❌ فشل في تحذير المستخدم!'
             });
         }
     } catch (error) {
@@ -134,7 +134,7 @@ async function warnCommand(sock, chatId, senderId, mentionedJids, message) {
             await new Promise(resolve => setTimeout(resolve, 2000));
             try {
                 await sock.sendMessage(chatId, { 
-                    text: '❌ Rate limit reached. Please try again in a few seconds.'
+                    text: '❌ تم الوصول إلى الحد الأقصى . يُرجى المحاولة مرة أخرى بعد بضع ثوانٍ..'
                 });
             } catch (retryError) {
                 console.error('Error sending retry message:', retryError);
@@ -142,7 +142,7 @@ async function warnCommand(sock, chatId, senderId, mentionedJids, message) {
         } else {
             try {
                 await sock.sendMessage(chatId, { 
-                    text: '❌ Failed to warn user. Make sure the bot is admin and has sufficient permissions.'
+                    text: '❌ فشل تحذير المستخدم. تأكد من أن البوت مسؤول ولديه جميع الصلاحيات .'
                 });
             } catch (sendError) {
                 console.error('Error sending error message:', sendError);
