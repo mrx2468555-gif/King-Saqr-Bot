@@ -747,7 +747,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 const isOwner = message.key.fromMe;
                 await handleAreactCommand(sock, chatId, message, isOwner);
                 break;
-            case userMessage === '.goodnight' || userMessage === '.lovenight' || userMessage === '.gn':
+            case userMessage === '.تصبحون على خير' || userMessage === '.lovenight' || userMessage === '.gn':
                 await goodnightCommand(sock, chatId, message);
                 break;
             case userMessage === '.shayari' || userMessage === '.shayri':
@@ -756,10 +756,10 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '.roseday':
                 await rosedayCommand(sock, chatId, message);
                 break;
-            case userMessage.startsWith('.imagine') || userMessage.startsWith('.flux') || userMessage.startsWith('.dalle'):
+            case userMessage.startsWith('.mr') || userMessage.startsWith('.flux') || userMessage.startsWith('.dalle'):
                 await imagineCommand(sock, chatId, message);
                 break;
-            case userMessage === '.jid':
+            case userMessage === '.ايدي الجروب ':
                 await groupJidCommand(sock, chatId, message);
                 break;
 
@@ -769,7 +769,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
 
                     if (!groupJid.endsWith('@g.us')) {
                         return await sock.sendMessage(chatId, {
-                            text: "❌ This command can only be used in a group."
+                            text: "❌ لا يمكن استخدام هذا الأمر إلا في مجموعة."
                         });
                     }
 
@@ -841,7 +841,7 @@ async function handleGroupParticipantUpdate(sock, update) {
             // Get welcome message from data
             const data = JSON.parse(fs.readFileSync('./data/userGroupData.json'));
             const welcomeData = data.welcome[id];
-            const welcomeMessage = welcomeData?.message || 'Welcome {user} to the group! 🎉';
+            const welcomeMessage = welcomeData?.message || 'مرحبا بك {user} في مجموعه! 🎉';
             const channelId = welcomeData?.channelId || '120363420656466131@newsletter';
 
             // Send welcome message for each new participant
@@ -860,7 +860,7 @@ async function handleGroupParticipantUpdate(sock, update) {
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
                             newsletterJid: channelId,
-                            newsletterName: 'King Saqr Bot',
+                            newsletterName: 'Bot Abdulrahman',
                             serverMessageId: -1
                         }
                     }
