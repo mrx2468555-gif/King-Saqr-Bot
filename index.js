@@ -242,8 +242,8 @@ async function startXeonBotInc() {
             
             const botNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
             await XeonBotInc.sendMessage(botNumber, { 
-                text: `🤖 بوت متصل بنجاح!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ الحالة: متصل وجاهز!
-                \n✅تأكد من الانضمام إلى القناة التلجرام https://t.me/+T_8QE67Pn6tkMzNk`,
+                text: `🤖 بوت متصل بنجاح!\n\n⏰ الوقت: ${new Date().toLocaleString()}\n✅ الحالة: متصل وجاهز!
+                \n✅تأكد من الانضمام إلى القناة التلجرام https://t.me/+qs2nQmnvEtkwMGRk`,
                 contextInfo: {
                     forwardingScore: 1,
                     isForwarded: true,
@@ -252,12 +252,12 @@ async function startXeonBotInc() {
             });
 
             await delay(1999)
-            console.log(chalk.yellow(`\n\n  ${chalk.bold.blue(`[ ${global.botname || 'King Saqr Bot'} ]`)}\n\n`))
+            console.log(chalk.yellow(`\n\n  ${chalk.bold.blue(`[ ${global.botname || ' Bot Abdulrahman '} ]`)}\n\n`))
             console.log(chalk.cyan(`< ================================================== >`))
-            console.log(chalk.magenta(`\n${global.themeemoji || '•'} YT CHANNEL: King Saqr`))
+            console.log(chalk.magenta(`\n${global.themeemoji || '•'} YT CHANNEL: MR_X_N`))
             console.log(chalk.magenta(`${global.themeemoji || '•'} GITHUB: luckytechhub`))
             console.log(chalk.magenta(`${global.themeemoji || '•'} WA NUMBER: ${owner}`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} رصيد: King Saqr`))
+            console.log(chalk.magenta(`${global.themeemoji || '•'} رصيد: Abdulrahman`))
             console.log(chalk.green(`${global.themeemoji || '•'} 🤖 بوت متصل بنجاح! ✅`))
         }
         if (
